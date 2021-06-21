@@ -1,0 +1,285 @@
+<html>
+    <title>Admission Prediction Model</title>
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+
+        *,*::before,*::after {
+            box-sizing: border-box;
+        }
+        div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, 
+        hr, form, fieldset, input, textarea, p, blockquote, th, td { 
+            padding:0;
+            margin:0;
+            background-color: #F1F0F0;
+        }
+        
+
+        body {
+            padding: 30px;
+        }
+
+        body,input,select {
+            font-family:'Open Sans', sans-serif;
+            font-size: 16px;
+            color: #4c4c4c;
+        }
+
+        html {
+            background: #ffff;
+        }
+
+        .Div1 {
+            margin: 20px auto;
+            width: 400px;
+            height: auto;
+            border-radius: 7px/8px;
+            background-color: #F1F0F0;
+            box-shadow: 1px 2px 5px rgba(0, 0, 0, .31);
+            
+        }
+
+        .Div1 hr {
+            margin-top: 10px;
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0))
+        }
+
+        .Div1 h1 {
+            font-size: 32px;
+            font-weight: 300;
+            color: #4c4c4c;
+            text-align: center;
+            padding-top: 10px;
+            margin-bottom: 10px;
+
+        }
+
+        .Div1 H1 > span {
+            display: block;
+            font-size: 12px;
+            color: rgb(101, 102, 99);
+        }
+
+
+        span[class="help"] {
+            position: relative;
+            display: block;
+            left: 100px;
+            font-size: 10px;
+        }
+
+        
+
+        .researchtype {
+            margin-left: 90px;
+            margin-top: 20px;
+        }
+
+
+
+        span[class="research"] {
+            position: relative;
+            display: block;
+            top: 10px;
+            left: 50px;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .Div1 div[class="inner-wrap"] {
+            padding: 30px;
+            background: #f1f0f0;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            
+        }
+
+        form {
+            margin: 0 5px;
+            background-color: #ebebeb;
+        }
+
+        .Div1 input[type='text'] {
+            width: 200px;
+            height: 25px;
+            border-radius: 0px 4px 4px 0px;
+            background-color: #fff;
+            box-shadow: 1px 2px 5px rgba(0, 0, 0, .09);
+            border: solid 1px #cbc9c9;
+            margin-left: -5px;
+            margin-top: 10px;
+            padding-left: 10px;
+        }
+
+        #icon {
+            position: relative;
+            display: inline-block;
+            vertical-align:top;
+            background-color: #3a57af;
+            align-content: center;
+            width: 30px;
+            padding: 0px 0px 10px 5px;
+            margin-left: 15px;
+            margin-top: 3px;
+            margin-right: 3px;
+            color: white;
+            border-radius: 4px 0px 0px 4px;
+            border: solid 0px #cbc9c9;
+        }
+
+        
+
+        .Div1 i {
+            position: relative;
+            top: 5px;
+            right: 3px;
+        }
+
+        .container {
+            display:inline-block;
+            position: relative;
+            padding-left: 25px;
+            cursor: pointer;
+            user-select: none;
+            margin-left: 5px;
+            margin-right: 40px;
+        }
+
+        .container input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .radio_control {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 15px;
+            width: 15px;
+            background-color: #eee;
+            border-radius: 50%;
+        }        
+        
+        .container:hover input ~ .radio_control {
+            background-color: #ccc;
+        }
+
+        .container input:checked ~ .radio_control {
+            background-color: #2196F3;
+        }
+
+        .radio_control::after {
+            content: "";
+            position: absolute;
+            display:none;
+        }
+
+        .container input:checked ~ .radio_control::after {
+            display: block;
+        }
+
+        .container .radio_control::after {
+            top: 3.5px;
+            left: 3.5px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: white;
+        }
+
+        .Div1 div[class="SubmitButton"] {
+            background-color: #F1F0F0;
+            align-items: center;
+ 
+        }
+
+        .Pred_text {
+            font-size: 12px;
+            margin-left: 10px;
+            color: #2e458b;
+
+        }
+
+        
+
+        .Div1 button[type='submit'] {
+            font-family: Verdana, sans-serif;
+            margin: 10px 5px 5px 280px;
+            font-weight: bold;
+            background: rgba(2, 36, 87, 0.6);
+            padding: 10px 10px 10px 10px;
+            border-radius: 5px;
+            color: rgb(250, 248, 246);
+            text-shadow: 2px 2px 2px 2px rgba(0, 0, 0, .31);
+            border-style:unset;
+        }
+
+        .Div1 button[type='submit']:hover {
+            top: 3px;
+            background-color: #2e458b;
+            box-shadow: none;
+        }
+
+
+    </style>
+</head>
+
+    <body>
+        
+        <div class="Div1">
+            <H1>Admission Prediction Model<span>Created by Satyendra Singh</span></H1>
+            <form action="predict" method="POST">
+                <hr>
+                <div class="inner-wrap">
+                    <div>
+                        <label id="icon"><i class="material-icons">score</i></label><input type=text name='gre' placeholder="GRE Score" required='required'><span class="help">(Maximum 340 marks)</span>
+                    </div>
+                    <div>
+                        <label id="icon"><i class="material-icons">score</i></label><input type=text name='toefl' placeholder="TOEFL Score" required='required'><span class="help">(Maximum 120 marks)</span>
+                    </div>
+                    <div>
+                        <label id="icon"><i class="material-icons">star_half</i></label><input type=text name='unvrate' placeholder="University Rating" required='required'><span class="help">(Rating between 0-5)</span>
+                    </div>
+                    <div>
+                        <label id="icon"><i class="material-icons">star_half</i></label><input type=text name='sop' placeholder="SOP Rating" required='required'><span class="help">(Rating between 0-5)</span>
+                    </div>
+                    <div>
+                        <label id="icon"><i class="material-icons">star_half</i></label><input type=text name='lor' placeholder="LOR Rating" required='required'><span class="help">(Rating between 0-5)</span>
+                    </div>
+                    <div>
+                        <label id="icon"><i class="material-icons">score</i></label><input type=text name='cgpa' placeholder="CGPA Score" required='required'><span class="help">(Rating between 0-10)</span>
+                    </div>
+                    
+                    <div>
+                        <hr>
+                    </div>
+                    <div><span class="research">Is he/she having experience in Research?</span></div>
+                    <div class="researchtype">
+                        <label class="container">Yes
+                                <input type="radio" name="radio" checked="checked" value="1">
+                                <span class="radio_control"></span>
+                        </label>
+                        <label class="container">No
+                                <input type="radio" name="radio" value="0">
+                                <span class="radio_control"></span>
+                        </label>
+                        
+                    </div>
+                    <hr>
+                    <div class="SubmitButton">
+                        <button type="submit">Predict</button>
+                    </div> 
+                    <div>
+                        <label class="Pred_text">{{prediction_text}}</label>
+                    </div>
+                </div>
+           
+            </form>
+
+        </div>
+    </body>
+
+</html>
