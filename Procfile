@@ -1,1 +1,1 @@
-web: gunicorn main:Adm_app
+web: gunicorn main:Adm_App
