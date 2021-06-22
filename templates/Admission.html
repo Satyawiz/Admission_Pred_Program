@@ -16,7 +16,7 @@
         
 
         body {
-            padding: 30px;
+            padding: 20px;
         }
 
         body,input,select {
@@ -30,8 +30,8 @@
         }
 
         .Div1 {
-            margin: 20px auto;
-            width: 400px;
+            margin: 5px auto;
+            width: 500px;
             height: auto;
             border-radius: 7px/8px;
             background-color: #F1F0F0;
@@ -196,12 +196,37 @@
  
         }
 
-        .Pred_text {
-            font-size: 12px;
-            margin-left: 10px;
-            color: #2e458b;
-
+        .wrapper {
+            height: 50px;
+            display:flex;
+            align-items: center;
+            justify-content: center;
+            word-wrap:break-word;
         }
+
+        .typing {
+            width: 500px;
+            animation: typing 2s steps(22), blink .5s step-end infinite alternate;
+            white-space:nowrap;
+            overflow: hidden;
+            border-right: 3px solid;
+            font-family: monospace;
+            font-size: 13px;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+        }
+
+        @keyframes blink{
+            50% {
+                border-color: transparent;
+            }
+        }
+            
+        
 
         
 
@@ -272,8 +297,10 @@
                     <div class="SubmitButton">
                         <button type="submit">Predict</button>
                     </div> 
-                    <div>
-                        <label class="Pred_text">{{prediction_text}}</label>
+                    <div class="wrapper">
+                        <div class="typing">
+                            {{prediction_text}}
+                        </div>
                     </div>
                 </div>
            
