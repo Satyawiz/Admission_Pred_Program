@@ -1,0 +1,1 @@
+web: gunicorn main:Adm_app
